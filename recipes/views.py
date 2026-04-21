@@ -13,7 +13,7 @@ def recipe_detail(request, pk):
 
 
 def recipe_create(request):
-    form = RecipeForm(request.POST or None)
+    form = RecipeForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
         return redirect('home')
@@ -22,7 +22,7 @@ def recipe_create(request):
 
 def recipe_update(request, pk):
     recipe = get_object_or_404(Recipe, pk=pk)
-    form = RecipeForm(request.POST or None, instance=recipe)
+    form = RecipeForm(request.POST or None, request.FILES or None, instance=recipe)
     if form.is_valid():
         form.save()
         return redirect('home')

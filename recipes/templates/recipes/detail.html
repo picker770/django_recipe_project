@@ -7,7 +7,7 @@
     <h2>{{ recipe.title }}</h2>
 
     {% if recipe.image %}
-    <img src="{{ recipe.image }}" class="img-fluid mb-3">
+    <img src="{{ recipe.image.url }}" class="img-fluid mb-3">
     {% endif %}
 
     <h5>Ingredients</h5>
